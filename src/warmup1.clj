@@ -1,5 +1,6 @@
 (ns warmup1
   (:use clojure.contrib.math)
+  (:use util.utils)
   )
 
 
@@ -34,4 +35,14 @@
   (if (or 
         (<= (abs(- 100 a)) 10)
         (<= (abs(- 200 a)) 10)) true false)
+  )
+
+(defn pos-neg[a b negative]
+  (if (or
+        (and (= negative false)(or (neg? a)(neg? b)))
+        (and (= negative true)(and (neg? a)(neg? b)))) true false)
+  )
+
+(defn not-string[cadena]
+  (if (contains-not? cadena) (str cadena)(str "not" cadena))
   )
